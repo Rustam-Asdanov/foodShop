@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("")
-                .defaultSuccessUrl("",true);
+                .loginPage("/food_store/login")
+                .defaultSuccessUrl("/food_store",true);
     }
 }
