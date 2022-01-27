@@ -1,6 +1,7 @@
 package com.example.foodShop.controller;
 
 import com.example.foodShop.model.Food;
+import com.example.foodShop.service.MainService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
+    private final MainService mainService;
+
+    public AdminController(MainService mainService) {
+        this.mainService = mainService;
+    }
 
     @GetMapping
     public String getPage(){
@@ -42,7 +49,7 @@ public class AdminController {
             @RequestParam("foodImage")MultipartFile multipartFile
             ){
 
-
+        mainService.saveNewFood(theFood,multipartFile);
 
         return "redirect:/admin/getFoodBase";
     }
