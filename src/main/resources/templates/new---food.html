@@ -1,10 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(30deg, #d4145a, #16b3b3);
+        justify-self: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5% 0;
+      }
+
+      img {
+        height: 20%;
+        width: 10%;
+      }
+
+      .heading {
+        position: absolute;
+        top: 5%;
+        font-family: "The Nautigal", cursive;
+        font-size: 4.2rem;
+        text-decoration: underline;
+      }
+
+      form {
+        background-color: rgb(161, 187, 187);
+        width: 50%;
+        border-radius: 20px;
+        position: absolute;
+        top: 25%;
+      }
+
+      #previous {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+      }
+    </style>
 </head>
 <body>
+<section>
+    <span class="heading">Scaletto Food Admin</span>
+    <img
+            id="previous"
+            src="/img/previous.png"
+            alt="previous"
+            onclick=""
+    />
 
+    <form class="row g-3 needs-validation p-3" novalidate th:object="${food}">
+        <div class="col-md-12">
+            <label for="validationCustom01" class="form-label">Food name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="validationCustom01"
+                    placeholder="Cake"
+                    th:field="*{foodName}"
+                    required
+            />
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="validationCustom02" class="form-label"
+            >Food description</label
+            >
+            <textarea
+                    class="form-control"
+                    id="validationCustom02"
+                    placeholder="Eggs, baking powder, all purpose flour, white sugar, vanilla extract"
+                    th:field="*{foodDescription}"
+                    required
+            ></textarea>
+
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="validationCustom03" class="form-label"
+            >Food price ($)</label
+            >
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend3">$</span>
+                <input
+                        type="number"
+                        class="form-control"
+                        id="validationCustom03"
+                        placeholder="10.49"
+                        th:field="*{foodPrice}"
+                        required
+                />
+
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="validationCustom04" class="form-label">Food image</label>
+            <input
+                    type="file"
+                    class="form-control"
+                    id="validationCustom04"
+                    name="foodImage"
+                    required
+            />
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" type="submit">Add food</button>
+        </div>
+    </form>
+</section>
+
+<script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
 </body>
 </html>

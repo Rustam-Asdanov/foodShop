@@ -1,8 +1,10 @@
 package com.example.foodShop.controller;
 
+import com.example.foodShop.model.Food;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/admin")
@@ -28,8 +30,20 @@ public class AdminController {
         return "";
     }
 
-    @GetMapping("/addNewFood")
-    public String addNewFood(){
+    @GetMapping("/getNewFoodPage")
+    public String getNewFoodPage(Model model){
+        model.addAttribute("food",new Food());
         return "new---food";
+    }
+
+    @PostMapping("/addNewFood")
+    public String addNewFood(
+            @ModelAttribute("food") Food theFood,
+            @RequestParam("foodImage")MultipartFile multipartFile
+            ){
+
+
+
+        return "redirect:/admin/getFoodBase";
     }
 }
