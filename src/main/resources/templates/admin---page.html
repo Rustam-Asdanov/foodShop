@@ -38,6 +38,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 5% 0;
       }
 
       .card {
@@ -96,61 +97,53 @@
       .card .card-text {
         height: 40%;
       }
+
+      .row {
+        margin-top: 7%;
+      }
     </style>
 </head>
 <body>
 <section>
     <span class="heading">Scaletto Food Admin</span>
-    <div class="row justify-content-between">
+    <div class="row justify-content-around">
         <div class="card col-3 col-sm-6 m-1">
-            <img
-                    src="https://cdn-icons-png.flaticon.com/512/1408/1408939.png"
-                    alt="new food"
-            />
+            <img src="/img/adding.png" alt="new food" />
             <div class="card-body">
                 <h5 class="card-title">New Food</h5>
                 <hr />
                 <p class="card-text">Here you can add new food for our food shop</p>
-                <a href="#" class="btn btn-primary">Open</a>
+                <a href="/admin/getFoodBase" class="btn btn-primary">Open</a>
             </div>
         </div>
 
         <div class="card col-3 col-sm-6 m-1">
-            <img
-                    src="https://cdn-icons-png.flaticon.com/512/2328/2328825.png"
-                    alt="check base"
-            />
+            <img src="/img/bill.png" alt="check base" />
             <div class="card-body">
                 <h5 class="card-title">Product orders</h5>
                 <hr />
                 <p class="card-text">Here you can view all orders</p>
-                <a href="#" class="btn btn-primary">Open</a>
+                <a href="/admin/getOrdersPage" class="btn btn-primary">Open</a>
             </div>
         </div>
 
         <div class="card col-3 col-sm-6 m-1">
-            <img
-                    src="https://cdn-icons.flaticon.com/png/512/3815/premium/3815950.png?token=exp=1642270617~hmac=f46edd6b021460ef93053618a8194495"
-                    alt="new admin"
-            />
+            <img src="/img/add-group.png" alt="new admin" />
             <div class="card-body">
                 <h5 class="card-title">New Admin</h5>
                 <hr />
                 <p class="card-text">Increase our administration members.</p>
-                <a href="#" class="btn btn-primary">Open</a>
+                <a href="/admin/addNewAdmin" class="btn btn-primary">Open</a>
             </div>
         </div>
 
         <div class="card col-3 col-sm-6 m-1">
-            <img
-                    src="https://cdn-icons.flaticon.com/png/512/3256/premium/3256194.png?token=exp=1642270836~hmac=e4b9e800f88e70728ac908d35d525908"
-                    alt="bye"
-            />
+            <img src="/img/turn-off.png" alt="bye" />
             <div class="card-body">
                 <h5 class="card-title">Light off</h5>
                 <hr />
                 <p class="card-text">Log out of the admin page.</p>
-                <a href="#" class="btn btn-primary">Open</a>
+                <a href="/logout" class="btn btn-primary">Logout</a>
             </div>
         </div>
     </div>

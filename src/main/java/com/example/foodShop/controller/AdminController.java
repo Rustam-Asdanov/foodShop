@@ -13,4 +13,23 @@ public class AdminController {
         return "admin---page";
     }
 
+    @GetMapping("/getFoodBase")
+    public String getFoodBase(){
+        return "food---base";
+    }
+
+    @GetMapping("/getOrdersPage")
+    public String getOrdersPage(){
+        return "";
+    }
+
+    @GetMapping("/addNewAdmin")
+    public String addNewAdmin(){
+        return "";
+    }
+
+    @GetMapping("/addNewFood")
+    public String addNewFood(){
+        return "new---food";
+    }
 }
