@@ -23,7 +23,8 @@ public class AdminController {
     }
 
     @GetMapping("/getFoodBase")
-    public String getFoodBase(){
+    public String getFoodBase(Model model){
+        model.addAttribute("foodList", mainService.getFoodList());
         return "food---base";
     }
 
@@ -46,11 +47,18 @@ public class AdminController {
     @PostMapping("/addNewFood")
     public String addNewFood(
             @ModelAttribute("food") Food theFood,
-            @RequestParam("foodImage")MultipartFile multipartFile
+            @RequestParam("someImage") MultipartFile multipartFile
             ){
 
         mainService.saveNewFood(theFood,multipartFile);
 
+        return "redirect:/admin/getFoodBase";
+    }
+
+    @GetMapping("/deleteFood/{id}")
+    public String deleteFoodById(
+            @PathVariable("id") long id
+    ){
         return "redirect:/admin/getFoodBase";
     }
 }

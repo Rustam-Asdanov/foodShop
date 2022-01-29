@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class MainService {
@@ -19,6 +20,7 @@ public class MainService {
 
     public void saveNewFood(Food theFood, MultipartFile multipartFile) {
         theFood.setFoodImage(multipartFile.getOriginalFilename());
+        System.out.println(theFood);
         foodRepository.save(theFood);
 
         try {
@@ -31,5 +33,9 @@ public class MainService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Food> getFoodList() {
+        return foodRepository.findAll();
     }
 }
